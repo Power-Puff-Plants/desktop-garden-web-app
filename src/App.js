@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <p>
-        We are PowerPuffPlants
+        We are PowerPuffPlants and friends
       </p>
     </div>
   );
