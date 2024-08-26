@@ -1,5 +1,5 @@
 .HomeScreen {
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 .image {
@@ -11,4 +11,36 @@
     font-size:100px;
     position: absolute;
     text-align: center;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+.projectDescriptionContainer {
+    width: 80%;
+}
+
+.projectDescription {
+    font-style: italic;
+    margin: 20px;
+}
+
+.backPain {
+    width: 200px;
+    height: 250px;
+}
+
+.problemStatementContainer {
+    margin-top: 75px;
+    display: flex;
+    flex-direction: row;
+    /* background-color: aqua; */
+}
+
+.problemTitle {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 10px;
 }
