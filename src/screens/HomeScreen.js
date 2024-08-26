@@ -3,7 +3,11 @@ import styles from "./HomeScreen.module.css";
 const HomeScreen = () => {
   return (
     <div className={styles.HomeScreen}>
-      <p>Welcome screen</p>
+      <div className={styles.welcomeBanner}>
+        <div>
+          <img className={styles.image} src="/assets/images/homepage.jpg" />
+        </div>
+      </div>
     </div>
   );
 };

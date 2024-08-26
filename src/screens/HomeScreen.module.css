@@ -1,3 +1,14 @@
 .HomeScreen {
     background-color: aqua;
 }
+
+.image {
+    width: 100%;
+}
+
+.welcomeTitle {
+    color: white;
+    font-size:100px;
+    position: absolute;
+    text-align: center;
+}
