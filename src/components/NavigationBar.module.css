@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     border: 1px solid black;
+    padding: 30px;
 }
 
 .profileImage {
@@ -10,16 +11,12 @@
     height: 5;
 }
 
-.image {
-    margin: 30px;    
-}
-
-.ppp-logo {
+.pppLogo {
     width: 160px;
     height: 85px;
 }
 
-.profile-img {
+.profileImg {
     width: 90px;
     height: 90px;
 }

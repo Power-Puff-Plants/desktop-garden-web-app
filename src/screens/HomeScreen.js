@@ -1,8 +1,8 @@
-import "./HomeScreen.css";
+import styles from "./HomeScreen.module.css";
 
 const HomeScreen = () => {
   return (
-    <div className="HomeScreen">
+    <div className={styles.HomeScreen}>
       <p>Welcome screen</p>
     </div>
   );
