@@ -1,0 +1,43 @@
+.NavigationBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.profileImage {
+    width: 5;
+    height: 5;
+}
+
+.image {
+    margin: 30px;    
+}
+
+.ppp-logo {
+    width: 160px;
+    height: 85px;
+}
+
+.profile-img {
+    width: 90px;
+    height: 90px;
+}
+
+.rightNavContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 800px;
+}
+
+.routesContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 500px;
+    width: 90%;
+    padding-top: 30px;
+}
+
