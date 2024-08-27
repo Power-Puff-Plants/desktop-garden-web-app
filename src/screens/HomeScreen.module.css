@@ -1,6 +1,6 @@
-.HomeScreen {
-    /* background-color: aqua; */
-}
+/* .HomeScreen {
+    /* background-color: aqua; 
+}*/ 
 
 .image {
     width: 100%;
@@ -33,7 +33,7 @@
 }
 
 .problemStatementContainer {
-    margin-top: 75px;
+    margin-top: 70px;
     display: flex;
     flex-direction: row;
     /* background-color: aqua; */
