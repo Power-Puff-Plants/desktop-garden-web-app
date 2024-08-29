@@ -5,6 +5,7 @@ import NavigationBar from './components/NavigationBar';
 import HomeScreen from './screens/HomeScreen';
 import DataAnalysisScreen from './screens/DataAnalysisScreen';
 import LoginScreen from './screens/LoginScreen';
+import ProductDetailsScreen from './screens/ProductDetailScreen';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path='/' element={<HomeScreen />} />
             <Route path='/data' element={<DataAnalysisScreen />}/>
+            <Route path='/product-detail' element={<ProductDetailsScreen />}/>
             <Route path='/login' element={<LoginScreen />}/>
           </Routes>
         </div>

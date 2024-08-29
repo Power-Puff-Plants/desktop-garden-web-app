@@ -8,7 +8,7 @@ const NavigationBar = () => {
       <div className={styles.rightNavContainer}>
         <div className={styles.routesContainer}>
           <Link to='/' className={styles.link}>Home</Link>
-          <Link className={styles.link}>Product Detail</Link>
+          <Link to='/product-detail' className={styles.link}>Product Detail</Link>
           <Link to='/data' className={styles.link}>Analysis</Link>
           <Link className={styles.link}>Log in</Link>
         </div>

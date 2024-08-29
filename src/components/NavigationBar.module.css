@@ -34,7 +34,15 @@
     align-items: center;
     max-width: 500px;
     width: 90%;
-    padding-top: 30px;
+    /* padding-top: 30px; */
+    /* background-color: bisque; */
+}
+
+@media (max-width: 600px) {
+    .routesContainer {
+        flex-direction: column;
+        /* justify-content: space-evenly; */
+    }
 }
 
 .link {
