@@ -43,7 +43,7 @@ const LoginScreen = () => {
       />
       <button onClick={signIn}>Sign In</button>
       <button onClick={signInWithGoogle}> Sign in with Google</button>
-      <button onClick={logOutj}>Log out</button>
+      <button onClick={logOut}>Log out</button>
     </div>
   );
 };
