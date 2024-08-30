@@ -10,7 +10,7 @@ const NavigationBar = () => {
           <Link to='/' className={styles.link}>Home</Link>
           <Link to='/product-detail' className={styles.link}>Product Detail</Link>
           <Link to='/data' className={styles.link}>Analysis</Link>
-          <Link className={styles.link}>Log in</Link>
+          <Link to='/login' className={styles.link}>Log in</Link>
         </div>
         <img className={styles.profileImg} src="/assets/images/profile-img.png"/>
       </div>
