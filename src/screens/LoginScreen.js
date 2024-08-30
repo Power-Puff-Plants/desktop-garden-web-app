@@ -7,6 +7,7 @@ import {
 } from "firebase/auth";
 import styles from "./LoginScreen.module.css";
 import LoginInput from "../components/LoginInput";
+import LoginButton from "../components/LogButton";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -45,10 +46,13 @@ const LoginScreen = () => {
       </div>
       <LoginInput title={'Email:'} setLogin={setEmail}/>
       <LoginInput title={'Password:'} type={'password'} setLogin={setPassword}/>
+      <LoginButton text={'Login'} onClick={signIn}/>
+      <LoginButton text={'Login with Google'} onClick={signInWithGoogle}/>
+      <LoginButton text={'Log out'} onClick={logOut}/>
 
-      <button onClick={signIn}>Login</button>
+      {/* <button onClick={signIn}>Login</button>
       <button onClick={signInWithGoogle}> Login with Google</button>
-      <button onClick={logOut}>Log out</button>
+      <button onClick={logOut}>Log out</button> */}
     </div>
   );
 };
