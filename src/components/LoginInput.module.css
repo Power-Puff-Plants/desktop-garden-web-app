@@ -1,4 +1,15 @@
 .loginInput {
     background-color: black;
-    border-radius: 20%;
+    border-radius: 30px;
+    width: 270px;
+    height: 35px;
+    color: white;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
 }
