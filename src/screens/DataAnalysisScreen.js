@@ -12,8 +12,8 @@ const DataAnalysisScreen = () => {
         <p>Data Analysis</p>
       </div>
       <div className={styles.dataContainerHolder}>
-        <DataContainer title={"Overall Posture Score"} description={postureScoreDesc}/>
-        <DataContainer title={"Real Time Posture Monitor"} description={postureMonitorDesc}/>
+        <DataContainer title={"Overall Posture Score"} description={postureScoreDesc} scoreOrMonitor={true}/> 
+        <DataContainer title={"Real Time Posture Monitor"} description={postureMonitorDesc} scoreOrMonitor={false}/>
       </div>
     </div>
   );
