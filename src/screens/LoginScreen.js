@@ -39,6 +39,7 @@ const LoginScreen = () => {
 
   return (
     <div className={styles.loginScreen}>
+      <img className={styles.background} src="/assets/images/loginbackground2.jpg"></img>
       <div className={styles.title}>
         <p>POWER</p>
         <p>PUFF</p>
