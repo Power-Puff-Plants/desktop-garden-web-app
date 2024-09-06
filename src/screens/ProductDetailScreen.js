@@ -12,6 +12,9 @@ const ProductDetailsScreen = () => {
           <img className={styles.pot} src="/assets/images/3d design.jpg" alt="Product Motor" />
           </div>
           <div className={styles.productDetailDescription}>
+            <h2>
+              DESIGN DRAFT
+            </h2>
             <p>
             This flowerpot design combines mechanical and electronic components to create an interactive, posture-sensitive flowerpot that reacts by blooming or closing its petals, potentially offering a unique reward or alert system.            
             </p>
@@ -23,6 +26,9 @@ const ProductDetailsScreen = () => {
             <img className={styles.pot} src="/assets/images/3d design.jpg" alt="Product Motor" />
           </div>
           <div className={styles.productDetailDescription}>
+            <h2>
+              MOTOR
+            </h2>
             <p>
               The motor mechanism plays a crucial role in controlling the vibrations and adjusting the plant's growth pattern according to user interactions. It adds a dynamic element to the project, making it both engaging and functional.
             </p>
