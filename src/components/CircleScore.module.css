@@ -1,0 +1,26 @@
+
+.outerCircle {
+    background-color: #95db4e;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.innerCircle {
+    background-color: white;
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.postureScore {
+    font-weight: bold;
+    font-size: 25px;
+}
