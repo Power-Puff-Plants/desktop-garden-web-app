@@ -50,10 +50,6 @@ const LoginScreen = () => {
       <LoginButton text={'Login'} onClick={signIn}/>
       <LoginButton text={'Login with Google'} onClick={signInWithGoogle}/>
       <LoginButton text={'Log out'} onClick={logOut}/>
-
-      {/* <button onClick={signIn}>Login</button>
-      <button onClick={signInWithGoogle}> Login with Google</button>
-      <button onClick={logOut}>Log out</button> */}
     </div>
   );
 };
