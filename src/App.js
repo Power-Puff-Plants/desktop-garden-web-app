@@ -7,12 +7,16 @@ import DataAnalysisScreen from './screens/DataAnalysisScreen';
 import LoginScreen from './screens/LoginScreen';
 import ProductDetailsScreen from './screens/ProductDetailScreen';
 import SignUpScreen from './screens/SignUpScreen';
+import { useEffect, useState } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './config/firebase';
+import { useAuthContext } from './hooks/useAuthContext';
 
 function App() {
   return (
     <Router>
       <div className={styles.App}>
-        <NavigationBar/>
+        <NavigationBar />
         <div className={styles.content}>
           <Routes>
             <Route path='/' element={<HomeScreen />} />

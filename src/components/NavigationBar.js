@@ -1,10 +1,28 @@
 import { useAuthContext } from "../hooks/useAuthContext";
 import styles from "./NavigationBar.module.css";
 import { Link } from "react-router-dom";
+import { auth } from "../config/firebase";
+import { useEffect, useState, useLayoutEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 
 const NavigationBar = () => {
-  const { user } = useAuthContext();
+  const { user, dispatch } = useAuthContext();
 
+  console.log(user?.profileImage); 
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        console.log("I'm logged in: ", currentUser.email);
+        // console.log("this is the user's photo URL", currentUser.photoURL);
+        const user = { email: currentUser.email, profileImage: currentUser?.photoURL }
+        dispatch({type: 'LOGIN', payload: user})
+      } else {
+        console.log("I'm not logged in");
+      }
+    })
+  }, [])
+ 
   return (
     <div className={styles.NavigationBar}>
       <img className={styles.pppLogo} src="/assets/images/ppp-logo.png" />

@@ -1,7 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { auth, googleProvider } from "../config/firebase";
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
@@ -18,6 +19,8 @@ const LoginScreen = () => {
   const [password, setPassword] = useState("");
 
   const { dispatch } = useAuthContext()
+
+  
 
   // const user = useContext(AuthContext);
   // console.log(user);
@@ -69,6 +72,8 @@ const LoginScreen = () => {
       <LoginButton text={'Login'} onClick={signIn}/>
       <LoginButton text={'Login with Google'} onClick={signInWithGoogle}/>
       <Link to='/sign-up' style={{marginTop: 20}}>Already have an account? Sign up here</Link>
+
+
       {/* <LoginButton text={'Log out'} onClick={logOut}/> */}
 
       {/* <button onClick={signIn}>Login</button>
