@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './config/firebase';
 import { useAuthContext } from './hooks/useAuthContext';
+import ProfileScreen from './screens/ProfileScreen';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path='/product-detail' element={<ProductDetailsScreen />}/>
             <Route path='/login' element={<LoginScreen />}/>
             <Route path='/sign-up' element={<SignUpScreen />}/>
+            <Route path='/profile' element={<ProfileScreen />}/>
           </Routes>
         </div>
         <Footer/>

@@ -9,7 +9,7 @@ import {
 import styles from "./LoginScreen.module.css";
 import LoginInput from "../components/LoginInput";
 import LoginButton from "../components/LogButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { AuthContext } from "../context/AuthContext";
 
@@ -18,15 +18,9 @@ const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { dispatch } = useAuthContext()
+  const { dispatch } = useAuthContext();
 
-  
-
-  // const user = useContext(AuthContext);
-  // console.log(user);
-
-  // console.log(auth?.currentUser?.email);
-  
+  const navigate = useNavigate();
 
   const signIn = async () => {
     try {
@@ -44,7 +38,7 @@ const LoginScreen = () => {
       await signInWithPopup(auth, googleProvider);
       const user = { email: auth.currentUser.email, profileImage: auth.currentUser.photoURL}
       dispatch({type: 'LOGIN', payload: user})
-
+      navigate('/')
     } catch (err) {
       console.error(err);
     }
@@ -53,6 +47,8 @@ const LoginScreen = () => {
   const logOut = async () => {
     try {
       await signOut(auth);
+      const user = { email: null, profileImage: null }
+      dispatch({type: 'LOGIN', payload: user})
     } catch (err) {
       console.error(err);
     }
@@ -72,9 +68,7 @@ const LoginScreen = () => {
       <LoginButton text={'Login'} onClick={signIn}/>
       <LoginButton text={'Login with Google'} onClick={signInWithGoogle}/>
       <Link to='/sign-up' style={{marginTop: 20}}>Already have an account? Sign up here</Link>
-
-
-      {/* <LoginButton text={'Log out'} onClick={logOut}/> */}
+      <LoginButton text={'Log out'} onClick={logOut}/>
 
       {/* <button onClick={signIn}>Login</button>
       <button onClick={signInWithGoogle}> Login with Google</button>

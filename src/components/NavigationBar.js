@@ -8,20 +8,24 @@ import { onAuthStateChanged } from "firebase/auth";
 const NavigationBar = () => {
   const { user, dispatch } = useAuthContext();
 
-  console.log(user?.profileImage); 
+  const [ profileImageUrl, setProfileImageUrl ] = useState('/assets/images/profile-img.png');
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        console.log("I'm logged in: ", currentUser.email);
+        console.log("I'm logged in: ", currentUser.photoURL);
         // console.log("this is the user's photo URL", currentUser.photoURL);
         const user = { email: currentUser.email, profileImage: currentUser?.photoURL }
+        setProfileImageUrl(currentUser?.photoURL)
+
         dispatch({type: 'LOGIN', payload: user})
       } else {
         console.log("I'm not logged in");
       }
     })
   }, [])
+
+  // const profileImage = <Link><img className={styles.profileImg} src={profileImageUrl}/></Link>
  
   return (
     <div className={styles.NavigationBar}>
@@ -37,19 +41,13 @@ const NavigationBar = () => {
           <Link to="/data" className={styles.link}>
             Analysis
           </Link>
-          <Link to="/login" className={styles.link}>
+          {!user?.email && <Link to="/login" className={styles.link}>
             Log in/Sign up
-          </Link>
+          </Link>}
           {/* <Link to='/sign-up' className={styles.link}>Log in</Link> */}
         </div>
-        {user?.profileImage ? (
-          <img className={styles.profileImg} src={user?.profileImage} />
-        ) : (
-          <img
-            className={styles.profileImg}
-            src="/assets/images/profile-img.png"
-          />
-        )}
+        {/* {user?.email && <img className={styles.profileImg} src={profileImageUrl}/>} */}
+        {user?.email && <Link to={'/profile'}><img className={styles.profileImg} src={profileImageUrl}/></Link>}
       </div>
     </div>
   );
