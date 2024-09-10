@@ -69,10 +69,6 @@ const LoginScreen = () => {
       <LoginButton text={'Login with Google'} onClick={signInWithGoogle}/>
       <Link to='/sign-up' style={{marginTop: 20}}>Already have an account? Sign up here</Link>
       <LoginButton text={'Log out'} onClick={logOut}/>
-
-      {/* <button onClick={signIn}>Login</button>
-      <button onClick={signInWithGoogle}> Login with Google</button>
-      <button onClick={logOut}>Log out</button> */}
     </div>
   );
 };
