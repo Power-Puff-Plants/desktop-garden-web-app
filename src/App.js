@@ -23,8 +23,9 @@ function App() {
             <Route path='/' element={<HomeScreen />} />
             <Route path='/data' element={<DataAnalysisScreen />}/>
             <Route path='/product-detail' element={<ProductDetailsScreen />}/>
-            <Route path='/login' element={<LoginScreen />}/>
-            <Route path='/sign-up' element={<SignUpScreen />}/>
+            <Route path='/login/:isLogin' element={<LoginScreen />}/>
+            <Route path='/sign-up' element={<LoginScreen isLogin={false}/>}/>
+            {/* <Route path='/sign-up' element={<SignUpScreen isLogi/>}/> */}
             <Route path='/profile' element={<ProfileScreen />}/>
           </Routes>
         </div>

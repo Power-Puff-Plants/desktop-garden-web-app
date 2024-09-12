@@ -41,7 +41,7 @@ const NavigationBar = () => {
           <Link to="/data" className={styles.link}>
             Analysis
           </Link>
-          {!user?.email && <Link to="/login" className={styles.link}>
+          {!user?.email && <Link to="/login/true" className={styles.link}>
             Log in/Sign up
           </Link>}
           {/* <Link to='/sign-up' className={styles.link}>Log in</Link> */}
