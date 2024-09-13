@@ -2,12 +2,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 30px;
-}
-
-.profileImage {
-    width: 5;
-    height: 5;
+    align-items: center;
+    padding: 20px;
+    position: relative;
 }
 
 .pppLogo {
@@ -15,16 +12,21 @@
     height: 85px;
 }
 
-.profileImg {
-    width: 90px;
-    height: 90px;
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 .rightNavContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     width: 800px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .routesContainer {
@@ -34,19 +36,47 @@
     align-items: center;
     max-width: 500px;
     width: 90%;
-    /* padding-top: 30px; */
-    /* background-color: bisque; */
 }
 
-@media (max-width: 600px) {
-    .routesContainer {
-        flex-direction: column;
-        /* justify-content: space-evenly; */
-    }
+.profileImg {
+    width: 90px;
+    height: 90px;
+    margin-top: 3%;
 }
 
 .link {
     text-decoration: none;
     color: black;
     font-weight: bold;
+    margin-top: 3%;
+}
+
+@media (max-width: 600px) {
+    .hamburger {
+        display: block;
+    }
+
+    .rightNavContainer {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        transform: translateX(100%);
+    }
+
+    .routesContainer {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    .rightNavContainer.showMenu {
+        transform: translateX(0);
+    }
 }
