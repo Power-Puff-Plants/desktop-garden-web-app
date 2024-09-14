@@ -3,6 +3,7 @@ import { auth, googleProvider } from "../config/firebase";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
@@ -23,12 +24,14 @@ const LoginScreen = () => {
 
   const { dispatch } = useAuthContext();
   const navigate = useNavigate();
+  console.log("The email is -> ", email);
 
   const signIn = async () => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password)
       const user = { email: auth.currentUser.email, profileImage: null };
       dispatch({ type: "LOGIN", payload: user });
+      navigate('/')
     } catch (err) {
       console.error(err);
     }
@@ -39,6 +42,7 @@ const LoginScreen = () => {
       await createUserWithEmailAndPassword(auth, email, password);
       const user = { email: auth.currentUser.email, profileImage: null };
       dispatch({ type: "LOGIN", payload: user });
+      navigate('/')
     } catch (err) {
       console.error(err);
     }
@@ -53,16 +57,6 @@ const LoginScreen = () => {
       };
       dispatch({ type: "LOGIN", payload: user });
       navigate("/");
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const logOut = async () => {
-    try {
-      await signOut(auth);
-      const user = { email: null, profileImage: null };
-      dispatch({ type: "LOGIN", payload: user });
     } catch (err) {
       console.error(err);
     }

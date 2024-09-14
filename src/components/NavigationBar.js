@@ -13,10 +13,12 @@ const NavigationBar = () => {
   useLayoutEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        console.log("I'm logged in: ", currentUser.photoURL);
+        console.log("I'm logged in: ", currentUser.email);
         // console.log("this is the user's photo URL", currentUser.photoURL);
         const user = { email: currentUser.email, profileImage: currentUser?.photoURL }
-        setProfileImageUrl(currentUser?.photoURL)
+        if (currentUser?.photoURL) {
+          setProfileImageUrl(currentUser?.photoURL)
+        }
 
         dispatch({type: 'LOGIN', payload: user})
       } else {
@@ -44,9 +46,7 @@ const NavigationBar = () => {
           {!user?.email && <Link to="/login/true" className={styles.link}>
             Log in/Sign up
           </Link>}
-          {/* <Link to='/sign-up' className={styles.link}>Log in</Link> */}
         </div>
-        {/* {user?.email && <img className={styles.profileImg} src={profileImageUrl}/>} */}
         {user?.email && <Link to={'/profile'}><img className={styles.profileImg} src={profileImageUrl}/></Link>}
       </div>
     </div>

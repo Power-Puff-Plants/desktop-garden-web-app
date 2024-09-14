@@ -14,7 +14,7 @@ const ProfileScreen = () => {
       await signOut(auth);
       const user = { email: null, profileImage: null }
       dispatch({type: 'LOGIN', payload: user})
-      navigate('/login')
+      navigate('/login/true')
     } catch (err) {
       console.error(err);
     }
