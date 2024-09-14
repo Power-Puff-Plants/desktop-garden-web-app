@@ -2,7 +2,7 @@ import CircleScore from './CircleScore';
 import styles from './DataContainer.module.css'
 import PostureMonitor from './PostureMonitor';
 
-const DataContainer = ({ title, description, scoreOrMonitor }) => {
+const DataContainer = ({ title, description, scoreOrMonitor, percentageScore }) => {
   return (
     <div className={styles.dataContainer}>
       <div className={styles.title}>
@@ -12,7 +12,7 @@ const DataContainer = ({ title, description, scoreOrMonitor }) => {
         {description}
       </div>
       <div className={styles.figure}>
-        {scoreOrMonitor ? <CircleScore /> : <PostureMonitor />}
+        {scoreOrMonitor ? <CircleScore percentageScore={percentageScore}/> : <PostureMonitor />}
       </div>
     </div>
   )

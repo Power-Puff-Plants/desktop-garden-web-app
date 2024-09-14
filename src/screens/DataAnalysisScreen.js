@@ -12,17 +12,10 @@ const DataAnalysisScreen = () => {
 
   const [postureData, setPostureData] = useState([]);
   const postureCollectionRef = collection(firestore, "PostureData");
+  const [posturePercentage, setPosturePercentage] = useState(0);
 
   useEffect(() => {
-    const calculatePercentage = () => {
-      const goodPosture = 0;
-      const totalPosture = 0;
-
-      postureData.forEach((postureEntry) => {
-        console.log(postureEntry);
-      });
-    }
-
+    
     const getPostureData = async () => {
       try {
         const data = await getDocs(postureCollectionRef);
@@ -35,11 +28,26 @@ const DataAnalysisScreen = () => {
         console.error(err);
       }
     };
+    const calculatePercentage = () => {
+      let goodPosture = 0;
+      let totalPosture = 0;
+
+      postureData.forEach((postureEntry) => {
+        console.log(postureEntry.isPostureGood === true);
+        if (postureEntry.isPostureGood) {
+          goodPosture++;
+        }
+        totalPosture ++;
+      });
+
+      setPosturePercentage(goodPosture / totalPosture);
+      // console.log(goodPosture/totalPosture);
+      // setPosturePercentage(goodPosture/totalPosture);
+    }
     getPostureData();
-
     calculatePercentage();
-
-  }, []);
+    
+  });
 
   return (
     <div className={styles.DataAnalysisScreen}>
@@ -51,6 +59,7 @@ const DataAnalysisScreen = () => {
           title={"Overall Posture Score"}
           description={postureScoreDesc}
           scoreOrMonitor={true}
+          percentageScore={posturePercentage}
         />
         <DataContainer
           title={"Real Time Posture Monitor"}
