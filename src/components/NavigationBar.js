@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useAuthContext } from "../hooks/useAuthContext";
 import styles from "./NavigationBar.module.css";
 import { Link } from "react-router-dom";
@@ -29,10 +30,16 @@ const NavigationBar = () => {
 
   // const profileImage = <Link><img className={styles.profileImg} src={profileImageUrl}/></Link>
  
+  const [isOpen, setIsOpen] = useState(false); // State to handle menu open/close
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className={styles.NavigationBar}>
-      <img className={styles.pppLogo} src="/assets/images/ppp-logo.png" />
-      <div className={styles.rightNavContainer}>
+      <img className={styles.pppLogo} src="/assets/images/ppp-logo.png"  />
+      <div className={`${styles.rightNavContainer} ${isOpen ? styles.showMenu : ""}`}>
         <div className={styles.routesContainer}>
           <Link to="/" className={styles.link}>
             Home
@@ -49,6 +56,9 @@ const NavigationBar = () => {
         </div>
         {user?.email && <Link to={'/profile'}><img className={styles.profileImg} src={profileImageUrl}/></Link>}
       </div>
+      <button className={styles.hamburger} onClick={toggleMenu}>
+        ☰
+      </button>
     </div>
   );
 };
