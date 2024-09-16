@@ -15,7 +15,6 @@ const DataAnalysisScreen = () => {
   const [posturePercentage, setPosturePercentage] = useState(0);
 
   useEffect(() => {
-    
     const getPostureData = async () => {
       try {
         const data = await getDocs(postureCollectionRef);
@@ -28,6 +27,7 @@ const DataAnalysisScreen = () => {
         console.error(err);
       }
     };
+
     const calculatePercentage = () => {
       let goodPosture = 0;
       let totalPosture = 0;
@@ -39,14 +39,10 @@ const DataAnalysisScreen = () => {
         }
         totalPosture ++;
       });
-
-      setPosturePercentage(goodPosture / totalPosture);
-      // console.log(goodPosture/totalPosture);
-      // setPosturePercentage(goodPosture/totalPosture);
+      setPosturePercentage((goodPosture / totalPosture) * 100);
     }
     getPostureData();
     calculatePercentage();
-    
   });
 
   return (
