@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import DataContainer from "../components/data/DataContainer";
+import DataContainer from "../../components/data/DataContainer";
 import styles from "./DataAnalysis.module.css";
-import { firestore } from "../config/firebase";
+import { firestore } from "../../config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 
 const DataAnalysisScreen = () => {
