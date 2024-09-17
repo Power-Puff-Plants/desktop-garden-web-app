@@ -7,8 +7,8 @@ import {
   signOut,
 } from "firebase/auth";
 import styles from "./LoginScreen.module.css";
-import LoginInput from "../components/LoginInput";
-import LoginButton from "../components/LogButton";
+import LoginInput from "../components/login/LoginInput";
+import LoginButton from "../components/login/LogButton";
 
 const SignUpScreen = () => {
   const [email, setEmail] = useState("");

@@ -1,7 +1,7 @@
 import styles from './App.module.css';
-import Footer from './components/Footer';
+import Footer from './components/layout/Footer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavigationBar from './components/NavigationBar';
+import NavigationBar from './components/layout/NavigationBar';
 import HomeScreen from './screens/HomeScreen';
 import DataAnalysisScreen from './screens/DataAnalysisScreen';
 import LoginScreen from './screens/LoginScreen';

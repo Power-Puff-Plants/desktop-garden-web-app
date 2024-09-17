@@ -1,4 +1,4 @@
-import LoginButton from "../components/LogButton";
+import LoginButton from "../components/login/LogButton";
 import { useAuthContext } from "../hooks/useAuthContext";
 import styles from "./ProfileScreen.module.css"
 import { signOut } from "firebase/auth";

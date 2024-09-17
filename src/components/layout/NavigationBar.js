@@ -1,7 +1,7 @@
-import { useAuthContext } from "../hooks/useAuthContext";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import styles from "./NavigationBar.module.css";
 import { Link } from "react-router-dom";
-import { auth } from "../config/firebase";
+import { auth } from "../../config/firebase";
 import { useEffect, useState, useLayoutEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 

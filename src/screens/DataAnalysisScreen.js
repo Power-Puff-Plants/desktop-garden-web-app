@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import DataContainer from "../components/DataContainer";
+import DataContainer from "../components/data/DataContainer";
 import styles from "./DataAnalysis.module.css";
 import { firestore } from "../config/firebase";
 import { getDocs, collection } from "firebase/firestore";
