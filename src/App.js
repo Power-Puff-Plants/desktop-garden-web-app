@@ -5,12 +5,12 @@ import NavigationBar from './components/layout/NavigationBar';
 import HomeScreen from './screens/home/HomeScreen';
 import DataAnalysisScreen from './screens/data/DataAnalysisScreen';
 import LoginScreen from './screens/login/LoginScreen';
-import ProductDetailsScreen from './screens/ProductDetailScreen';
+import ProductDetailsScreen from './screens/product/ProductDetailScreen';
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './config/firebase';
 import { useAuthContext } from './hooks/useAuthContext';
-import ProfileScreen from './screens/ProfileScreen';
+import ProfileScreen from './screens/profile/ProfileScreen';
 
 function App() {
   return (

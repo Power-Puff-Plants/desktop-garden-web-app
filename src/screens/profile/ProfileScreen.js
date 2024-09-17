@@ -1,8 +1,8 @@
-import LoginButton from "../components/login/LogButton";
-import { useAuthContext } from "../hooks/useAuthContext";
+import LoginButton from "../../components/login/LogButton";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import styles from "./ProfileScreen.module.css"
 import { signOut } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { auth } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 
 const ProfileScreen = () => {
