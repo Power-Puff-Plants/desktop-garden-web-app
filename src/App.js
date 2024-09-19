@@ -11,6 +11,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './config/firebase';
 import { useAuthContext } from './hooks/useAuthContext';
 import ProfileScreen from './screens/profile/ProfileScreen';
+import DetectionScreen from './screens/detection/DetectionScreen';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path='/product-detail' element={<ProductDetailsScreen />}/>
             <Route path='/login/:isLogin' element={<LoginScreen />}/>
             <Route path='/sign-up' element={<LoginScreen isLogin={false}/>}/>
+            <Route path='/detection' element={<DetectionScreen />}/>
             {/* <Route path='/sign-up' element={<SignUpScreen isLogi/>}/> */}
             <Route path='/profile' element={<ProfileScreen />}/>
           </Routes>
