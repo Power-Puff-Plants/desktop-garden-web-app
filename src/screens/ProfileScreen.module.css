@@ -1,0 +1,71 @@
+.ProfileScreen {
+    padding: 0px;
+    max-width: 12000px;
+    margin: 0 auto;
+}
+
+.ProfileScreenTitle {
+    font-weight: bold;
+    font-size: 50px;
+    margin: 20px;
+}
+
+.content {
+    padding: 5%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.profileImgcontent {
+    /* max-width: 190px;
+    max-height: 190px; */
+    width: 200px;
+    height: 200px;
+    margin-top: 13%;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    /* margin: 20px; */
+    margin-left: 5%;
+    margin-right:5%;
+}
+
+.label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.input {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #2d572c; /* Dark green border */
+    border-radius: 5px;
+}
+
+.saveButton {
+    background-color: #2d572c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.saveButton:hover {
+    background-color: #1f3e1e; /* Darker green on hover */
+}
+
+.logout {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
