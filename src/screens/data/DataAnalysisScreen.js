@@ -43,7 +43,7 @@ const DataAnalysisScreen = () => {
     }
     getPostureData();
     calculatePercentage();
-  });
+  }, []);
 
   return (
     <div className={styles.DataAnalysisScreen}>
