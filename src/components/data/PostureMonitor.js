@@ -18,10 +18,18 @@ const PostureMonitor = ({ postureData }) => {
     ],
   });
 
+  // Convert Firestore timestamp (seconds + nanoseconds) to JavaScript Date
+  const convertTimestampToDate = (timestamp) => {
+    return new Date(timestamp.seconds * 1000 + timestamp.nanoseconds / 1000000);
+  };
+
   // Update chart dynamically when postureData changes
   useEffect(() => {
-    const labels = postureData.map(dataPoint => new Date(dataPoint.time).toLocaleTimeString());
-    const data = postureData.map(dataPoint => (dataPoint.isGood ? 1 : 0));
+    const labels = postureData.map(dataPoint => 
+      convertTimestampToDate(dataPoint.timeRecorded).toLocaleTimeString()
+    );
+    
+    const data = postureData.map(dataPoint => (dataPoint.isPostureGood ? 1 : 0));
 
     setChartData({
       labels,
