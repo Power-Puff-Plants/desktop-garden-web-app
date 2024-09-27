@@ -1,33 +1,28 @@
-import { useAuthContext } from "../hooks/useAuthContext";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import styles from "./NavigationBar.module.css";
 import { Link } from "react-router-dom";
-import { auth } from "../config/firebase";
+import { auth } from "../../config/firebase";
 import { useEffect, useState, useLayoutEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 
 const NavigationBar = () => {
   const { user, dispatch } = useAuthContext();
-
   const [ profileImageUrl, setProfileImageUrl ] = useState('/assets/images/profile-img.png');
 
   useLayoutEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         console.log("I'm logged in: ", currentUser.email);
-        // console.log("this is the user's photo URL", currentUser.photoURL);
         const user = { email: currentUser.email, profileImage: currentUser?.photoURL }
         if (currentUser?.photoURL) {
           setProfileImageUrl(currentUser?.photoURL)
         }
-
         dispatch({type: 'LOGIN', payload: user})
       } else {
         console.log("I'm not logged in");
       }
     })
   }, [])
-
-  // const profileImage = <Link><img className={styles.profileImg} src={profileImageUrl}/></Link>
  
   const [isOpen, setIsOpen] = useState(false); // State to handle menu open/close
 
@@ -51,6 +46,9 @@ const NavigationBar = () => {
           </Link>
           {!user?.email && <Link to="/login/true" className={styles.link}>
             Log in/Sign up
+          </Link>}
+          {<Link to="/detection" className={styles.link}>
+            Detection
           </Link>}
         </div>
         {user?.email && <Link to={'/profile'}><img className={styles.profileImg} src={profileImageUrl}/></Link>}
