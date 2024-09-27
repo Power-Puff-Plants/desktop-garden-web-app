@@ -16,34 +16,39 @@ const DataAnalysisScreen = () => {
 
   useEffect(() => {
     const getPostureData = async () => {
+      console.log("Running get posture Data");
       try {
         const data = await getDocs(postureCollectionRef);
         const filteredData = data.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
         }));
+        console.log(filteredData);
         setPostureData(filteredData)
       } catch (err) {
         console.error(err);
       }
     };
+    getPostureData();
+  }, []);
 
-    const calculatePercentage = () => {
+  useEffect(() => {
+    if (postureData.length > 0) {
+      console.log("Calculating posture percentage");
       let goodPosture = 0;
       let totalPosture = 0;
 
       postureData.forEach((postureEntry) => {
-        console.log(postureEntry.isPostureGood === true);
         if (postureEntry.isPostureGood) {
           goodPosture++;
         }
-        totalPosture ++;
+        totalPosture++;
       });
-      setPosturePercentage((goodPosture / totalPosture) * 100);
+
+      const percentage = (goodPosture / totalPosture) * 100;
+      setPosturePercentage(percentage); // Set the calculated percentage
     }
-    getPostureData();
-    calculatePercentage();
-  }, []);
+  }, [postureData]); // Depend on postureData
 
   return (
     <div className={styles.DataAnalysisScreen}>
