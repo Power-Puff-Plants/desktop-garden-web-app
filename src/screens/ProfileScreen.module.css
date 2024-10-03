@@ -18,8 +18,6 @@
 }
 
 .profileImgcontent {
-    /* max-width: 190px;
-    max-height: 190px; */
     width: 200px;
     height: 200px;
     margin-top: 13%;
@@ -31,7 +29,6 @@
     flex-direction: column;
     width: 100%;
     max-width: 400px;
-    /* margin: 20px; */
     margin-left: 5%;
     margin-right:5%;
 }
