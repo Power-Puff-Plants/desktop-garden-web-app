@@ -18,14 +18,44 @@ const PostureMonitor = ({ postureData }) => {
     ],
   });
 
+  const [chartOptions, setChartOptions] = useState({
+    scales: {
+      y: {
+        min: 0,   // Set the minimum value of the y-axis
+        max: 100, // Set the maximum value of the y-axis
+        ticks: {
+          // Show only specific ticks: 0, 20, 40, 60, 80, 100
+          callback: function(value) {
+            return value % 20 === 0 ? value + '%' : ''; // Only show labels that are multiples of 20
+          },
+        },
+      },
+    },
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Good Posture Percentage Over Time',
+      },
+    },
+  });
+
   // Convert Firestore timestamp (seconds + nanoseconds) to JavaScript Date
   const convertTimestampToDate = (timestamp) => {
     return new Date(timestamp.seconds * 1000 + timestamp.nanoseconds / 1000000);
   };
 
-  // Helper function to format a JavaScript Date to "YYYY-MM-DD"
+  // Helper function to format a JavaScript Date to "MMM D, YYYY" (e.g., "Oct 3, 2024")
   const formatDate = (date) => {
-    return date.toISOString().split('T')[0];  // Returns date in YYYY-MM-DD format
+    return date.toLocaleDateString(undefined, {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
   };
 
   // Aggregate posture data by day and calculate percentage of good posture
@@ -52,7 +82,7 @@ const PostureMonitor = ({ postureData }) => {
   useEffect(() => {
     const aggregatedData = aggregatePostureByDay(postureData);
 
-    const labels = Object.keys(aggregatedData);  // Date labels (YYYY-MM-DD)
+    const labels = Object.keys(aggregatedData);  // Date labels in "MMM D, YYYY" format
     const data = Object.values(aggregatedData).map(({ goodPostureCount, totalCount }) => 
       ((goodPostureCount / totalCount) * 100).toFixed(2)  // Calculate percentage and round to 2 decimals
     );
@@ -72,9 +102,9 @@ const PostureMonitor = ({ postureData }) => {
   }, [postureData]);
 
   return (
-    <div style={{ width: '600px', height: '300px' }}>  {/* Adjust width and height here */}
-    <Line data={chartData} />
-  </div>
+    <div style={{ width: '600px', height: '300px' }}>
+      <Line data={chartData} options={chartOptions} />
+    </div>
   );
 };
 
