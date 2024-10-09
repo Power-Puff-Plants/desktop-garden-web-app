@@ -46,7 +46,7 @@ const DataAnalysisScreen = () => {
       });
 
       const percentage = (goodPosture / totalPosture) * 100;
-      setPosturePercentage(percentage); // Set the calculated percentage
+      setPosturePercentage(Math.round(percentage)); // Set the calculated percentage
     }
     console.log(postureData);
   }, [postureData]); // Depend on postureData
