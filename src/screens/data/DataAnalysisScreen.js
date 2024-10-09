@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import DataContainer from "../../components/data/DataContainer";
 import styles from "./DataAnalysis.module.css";
 import { firestore } from "../../config/firebase";
-import { getDocs, collection } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 
 const DataAnalysisScreen = () => {
   const postureScoreDesc =
@@ -15,21 +15,18 @@ const DataAnalysisScreen = () => {
   const [posturePercentage, setPosturePercentage] = useState(0);
 
   useEffect(() => {
-    const getPostureData = async () => {
-      console.log("Running get posture Data");
-      try {
-        const data = await getDocs(postureCollectionRef);
-        const filteredData = data.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        console.log(filteredData);
-        setPostureData(filteredData)
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    getPostureData();
+    const unsubscribe = onSnapshot(postureCollectionRef, (snapshot) => {
+      const filteredData = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setPostureData(filteredData);
+    }, (err) => {
+      console.error(err);
+    });
+
+    // Cleanup the listener on unmount
+    return () => unsubscribe();
   }, []);
 
   useEffect(() => {
