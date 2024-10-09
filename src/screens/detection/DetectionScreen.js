@@ -1,7 +1,7 @@
 const DetectionScreen = () => {
   return (
   <div>
-    I'm detection screen
+    <img src="assets/images/Group 32.png"></img>
   </div>
   )
 }

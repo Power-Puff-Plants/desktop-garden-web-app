@@ -48,7 +48,7 @@ const NavigationBar = () => {
             Log in/Sign up
           </Link>}
           {<Link to="/detection" className={styles.link}>
-            Detection
+            Reward
           </Link>}
         </div>
         {user?.email && <Link to={'/profile'}><img className={styles.profileImg} src={profileImageUrl}/></Link>}
