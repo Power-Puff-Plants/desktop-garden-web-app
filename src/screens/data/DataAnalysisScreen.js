@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import DataContainer from "../components/DataContainer";
+import DataContainer from "../../components/data/DataContainer";
 import styles from "./DataAnalysis.module.css";
-import { firestore } from "../config/firebase";
+import { firestore } from "../../config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 
 const DataAnalysisScreen = () => {
@@ -12,34 +12,44 @@ const DataAnalysisScreen = () => {
 
   const [postureData, setPostureData] = useState([]);
   const postureCollectionRef = collection(firestore, "PostureData");
+  const [posturePercentage, setPosturePercentage] = useState(0);
 
   useEffect(() => {
-    const calculatePercentage = () => {
-      const goodPosture = 0;
-      const totalPosture = 0;
-
-      postureData.forEach((postureEntry) => {
-        console.log(postureEntry);
-      });
-    }
-
     const getPostureData = async () => {
+      console.log("Running get posture Data");
       try {
         const data = await getDocs(postureCollectionRef);
         const filteredData = data.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
         }));
+        console.log(filteredData);
         setPostureData(filteredData)
       } catch (err) {
         console.error(err);
       }
     };
     getPostureData();
-
-    calculatePercentage();
-
   }, []);
+
+  useEffect(() => {
+    if (postureData.length > 0) {
+      console.log("Calculating posture percentage");
+      let goodPosture = 0;
+      let totalPosture = 0;
+
+      postureData.forEach((postureEntry) => {
+        if (postureEntry.isPostureGood) {
+          goodPosture++;
+        }
+        totalPosture++;
+      });
+
+      const percentage = (goodPosture / totalPosture) * 100;
+      setPosturePercentage(percentage); // Set the calculated percentage
+    }
+    console.log(postureData);
+  }, [postureData]); // Depend on postureData
 
   return (
     <div className={styles.DataAnalysisScreen}>
@@ -51,11 +61,13 @@ const DataAnalysisScreen = () => {
           title={"Overall Posture Score"}
           description={postureScoreDesc}
           scoreOrMonitor={true}
+          percentageScore={posturePercentage}
         />
         <DataContainer
           title={"Real Time Posture Monitor"}
           description={postureMonitorDesc}
           scoreOrMonitor={false}
+          postureDataActual={postureData}
         />
       </div>
     </div>

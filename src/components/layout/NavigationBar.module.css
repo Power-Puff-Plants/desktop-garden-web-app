@@ -27,7 +27,7 @@
     justify-content: space-around;
     align-items: center;
     width: 800px;
-    transition: transform 0.3s ease-in-out;
+    /* transition: transform 0.3s ease-in-out; */
 }
 
 .routesContainer {
@@ -38,19 +38,66 @@
     max-width: 500px;
     width: 90%;
 }
-
+/* 
 .profileImg {
     width: 90px;
     height: 90px;
-    margin-top: 3%;
-}
+    margin-top: 20%;
+    border-radius: 50%;
 
+} */
+
+/* Add hover effect for navigation links */
 .link {
+    position: relative;
     text-decoration: none;
     color: black;
     font-weight: bold;
     margin-top: 3%;
+    transition: color 0.4s ease-in-out;
+    font-size: 18px;
+    background: linear-gradient(40deg, #50b97a, #195026);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+.link::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(40deg, #50b97a, #195026);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-out;
+}
+
+.link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* SVG hover effect on the profile image */
+.profileImg {
+    width: 90px;
+    height: 90px;
+    margin-top: 20%;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: border 0.8s ease-in-out ;
+}
+
+.profileImg:hover {
+    border: 2px solid;
+    border-image: linear-gradient(40deg,  #50b97a, #195026);
+    border-image-slice: 1;
+    border-radius: 50%;
+}
+
+
 
 @media (max-width: 600px) {
     .hamburger {

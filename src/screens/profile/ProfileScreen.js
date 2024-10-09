@@ -1,8 +1,8 @@
-import LoginButton from "../components/LogButton";
-import { useAuthContext } from "../hooks/useAuthContext";
+import LoginButton from "../../components/login/LogButton";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import styles from "./ProfileScreen.module.css";
 import { signOut } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { auth } from "../../config/firebase";
 import { useNavigate, Link } from "react-router-dom"; // Import Link for navigation
 import { useState } from "react";
 
@@ -12,7 +12,6 @@ const ProfileScreen = () => {
 
   // State for input fields
   const [username, setUsername] = useState("");
-  const [height, setHeight] = useState("");
   const [password, setPassword] = useState("");
 
   const logOut = async () => {
