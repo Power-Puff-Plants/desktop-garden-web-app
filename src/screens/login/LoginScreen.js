@@ -101,7 +101,9 @@ const LoginScreen = () => {
         type={"password"}
         setLogin={setPassword}
       />
-      {isLoginBool ? <LoginSection /> : <SignUpSection />}
+      <div className={styles.click}>
+        {isLoginBool ? <LoginSection /> : <SignUpSection />}
+      </div>
     </div>
   );
 };
