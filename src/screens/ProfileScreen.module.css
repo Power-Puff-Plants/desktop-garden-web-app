@@ -1,4 +1,4 @@
-.ProfileScreen {
+/* .ProfileScreen {
     padding: 0px;
     max-width: 12000px;
     margin: 0 auto;
@@ -18,12 +18,9 @@
 }
 
 .profileImgcontent {
-<<<<<<< HEAD
-    max-width: 290px;
-    max-height: 290px;
-=======
->>>>>>> 1239267535edb15292e940b6cd102e20fdcace08
-    width: 200px;
+    /* max-width: 290px; */
+    /* max-height: 290px; */
+ /*   width: 200px
     height: 200px;
     margin-top: 13%;
     border-radius: 50%;
@@ -50,7 +47,7 @@
     padding: 10px;
     font-size: 14px;
     border: 1px solid #2d572c; /* Dark green border */
-    border-radius: 5px;
+/*    border-radius: 5px;
 }
 
 .saveButton {
@@ -65,8 +62,8 @@
 
 .saveButton:hover {
     background-color: #1f3e1e; /* Darker green on hover */
+    /*
 }
-
 .logout {
     margin-top: 20px;
     display: flex;
@@ -77,3 +74,4 @@
 .logout:hover{
     opacity: 0.6;
 }
+*/

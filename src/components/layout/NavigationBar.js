@@ -12,7 +12,7 @@ const NavigationBar = () => {
   useLayoutEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        console.log("I'm logged in: ", currentUser.email);
+        console.log("I'm logged in: ", currentUser?.photoURL);
         const user = { email: currentUser.email, profileImage: currentUser?.photoURL }
         if (currentUser?.photoURL) {
           setProfileImageUrl(currentUser?.photoURL)

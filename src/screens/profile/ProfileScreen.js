@@ -10,6 +10,8 @@ const ProfileScreen = () => {
   const { user, dispatch } = useAuthContext(); // Assuming 'user' comes from AuthContext
   const navigate = useNavigate();
 
+  console.log();
+
   // State for input fields
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +27,7 @@ const ProfileScreen = () => {
     }
   };
 
-  const profileImageUrl = user?.profileImage || '/assets/images/posture.png'; 
+  const profileImageUrl = user?.profileImage || '/assets/images/profile-img.png'; 
 
   return (
     <div className={styles.ProfileScreen}>
