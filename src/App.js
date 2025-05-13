@@ -12,6 +12,7 @@ import { auth } from './config/firebase';
 import { useAuthContext } from './hooks/useAuthContext';
 import ProfileScreen from './screens/profile/ProfileScreen';
 import DetectionScreen from './screens/detection/DetectionScreen';
+import EthicsScreen from './screens/ethics/EthicsScreen';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path='/detection' element={<DetectionScreen />}/>
             {/* <Route path='/sign-up' element={<SignUpScreen isLogi/>}/> */}
             <Route path='/profile' element={<ProfileScreen />}/>
+            <Route path='/ethics' element={<EthicsScreen />}/>
           </Routes>
         </div>
         <Footer/>
